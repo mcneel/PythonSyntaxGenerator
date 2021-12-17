@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<content xml:space="preserve">
+  <item id="devlang_Python">Python</item>
+  <item id="devlang_python">Python</item>
+  <item id="devlang_py">Python</item>
+
+  <item id="metalang_Python">Python</item>
+  <item id="metalang_python">Python</item>
+  <item id="metalang_py">Python</item>
+
+	<item id="metaLang_PythonSyntaxGenerator">Python</item>
+
+	<item id="UnsupportedOperator_Python">Python does not support this operator.</item>
+</content>
