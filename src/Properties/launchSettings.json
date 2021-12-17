@@ -1,8 +1,0 @@
-{
-  "profiles": {
-    "PythonSyntaxGenerator": {
-      "commandName": "Executable",
-      "executablePath": "$(SHFBROOT)\\Tools\\SandcastleBuilderGUI.exe"
-    }
-  }
-}

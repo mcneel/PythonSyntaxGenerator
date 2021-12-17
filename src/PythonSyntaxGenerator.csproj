@@ -1,31 +1,29 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFramework>netstandard2.0</TargetFramework>
-		<GenerateAssemblyVersionAttribute>False</GenerateAssemblyVersionAttribute>
-		<GenerateAssemblyFileVersionAttribute>False</GenerateAssemblyFileVersionAttribute>
-		<GenerateAssemblyInformationalVersionAttribute>False</GenerateAssemblyInformationalVersionAttribute>
 		<EnableNETAnalyzers>true</EnableNETAnalyzers>
 		<AnalysisMode>AllEnabledByDefault</AnalysisMode>
-		<RootNamespace>PythonSyntaxGenerator</RootNamespace>
+		<RootNamespace>PythonSyntax</RootNamespace>
 		<AssemblyName>PythonSyntaxGenerator</AssemblyName>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 		<Product>PythonSyntaxGenerator</Product>
-		<Title>PythonSyntaxGenerator Syntax Generator</Title>
-		<Description>A Sandcastle Help File Builder syntax generator</Description>
-		<Version>1.0.0.0</Version>
-		<Authors>ehsan</Authors>
-		<Company>ehsan</Company>
-		<PackageIconUrl></PackageIconUrl>
-		<PackageIcon></PackageIcon>
-		<RepositoryUrl></RepositoryUrl>
+		<Version>0.1.0</Version>
+		<PackageVersion>$(Version)</PackageVersion>
+		<Title>SandCastle Python Syntax Generator</Title>
+		<Description>Generates Python declaration syntax sections</Description>
+		<Authors>Robert McNeel and Associates</Authors>
+		<Company>McNeel</Company>
+		<Copyright>Copyright (c) 1997-2021 Robert McNeel and Associates</Copyright>
+		<PackageIcon>icon.png</PackageIcon>
+		<RepositoryUrl>https://github.com/mcneel/PythonSyntaxGenerator.git</RepositoryUrl>
 		<RepositoryType>git</RepositoryType>
-		<PackageTags>PythonSyntaxGenerator SHFB sandcastle syntax generator</PackageTags>
-		<PackageProjectUrl></PackageProjectUrl>
-		<PackageLicenseExpression>MS-PL</PackageLicenseExpression>
-		<PackageReleaseNotes></PackageReleaseNotes>
+		<PackageTags>PythonSyntaxGenerator SHFB sandcastle build component</PackageTags>
+		<PackageProjectUrl>https://github.com/mcneel/PythonSyntaxGenerator</PackageProjectUrl>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<PackageReleaseNotes>https://github.com/mcneel/PythonSyntaxGenerator/blob/main/CHANGELOG.md</PackageReleaseNotes>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
 		<IsTool>true</IsTool>
-		<NoWarn>$(NoWarn);NU5128</NoWarn>
+		<NoWarn>$(NoWarn);NU5128;CA1034;CA1303;CA1708;CA2227</NoWarn>
 		<ContentTargetFolders>tools\</ContentTargetFolders>
 	</PropertyGroup>
 
@@ -40,6 +38,11 @@
 		<Content Include="SyntaxContent\**">
 			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</Content>
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Include="$(SourceDir)..\art\icon.png" Pack="true" PackagePath="" />
+		<None Include="$(SourceDir)..\README.md" Pack="true" PackagePath="" />
 	</ItemGroup>
 
 	<ItemGroup>
