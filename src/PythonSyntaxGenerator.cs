@@ -229,16 +229,23 @@ namespace PythonSyntax
             switch (reference.LocalName)
             {
                 case "arrayOf":
+                    // write "Array[Type]" instead of "Type[]"
                     int rank = Convert.ToInt32(reference.GetAttribute("rank", string.Empty), CultureInfo.InvariantCulture);
                     XPathNavigator navigator = reference.SelectSingleNode(typeExpression);
 
+                    for (int i = 1; i < rank + 1; i++)
+                    {
+                        writer.WriteReferenceLink("T:System.Array");
+                        writer.WriteString("[");
+                    }
+
                     WriteTypeReference(navigator, writer);
-                    writer.WriteString("[");
 
-                    for (int i = 1; i < rank; i++)
-                        writer.WriteString(",");
+                    for (int i = 1; i < rank + 1; i++)
+                    {
+                        writer.WriteString("]");
+                    }
 
-                    writer.WriteString("]");
                     break;
 
                 case "type":

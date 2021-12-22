@@ -8,7 +8,7 @@
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 		<Product>PythonSyntaxGenerator</Product>
 		<Version>0.1.0</Version>
-		<PackageVersion>$(Version)-beta</PackageVersion>
+		<PackageVersion>$(Version)-beta2</PackageVersion>
 		<Title>SandCastle Python Syntax Generator</Title>
 		<Description>Generates Python declaration syntax sections</Description>
 		<Authors>Robert McNeel and Associates</Authors>
