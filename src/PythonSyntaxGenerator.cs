@@ -308,6 +308,16 @@ namespace PythonSyntax
 
                     writer.WriteString("]");
                     break;
+
+                case "referenceTo":
+                    XPathNavigator referTo = reference.SelectSingleNode(typeExpression);
+                    WriteTypeReference(referTo, writer);
+                    break;
+
+                case "parameter":
+                    XPathNavigator paramType = reference.SelectSingleNode(parameterTypeExpression);
+                    WriteTypeReference(paramType, writer);
+                    break;
             }
         }
 
@@ -409,12 +419,10 @@ namespace PythonSyntax
 
         private XPathNavigator[] WriteMethodParameters(XPathNavigator reflection, SyntaxWriter writer, FunctionOptions opts)
         {
-            XPathNavigator[] outputs = Array.Empty<XPathNavigator>();
-
             XPathNodeIterator parameters = reflection.Select(apiParametersExpression);
 
             writer.WriteString("(");
-            outputs = WriteParameters(parameters, writer, opts);
+            XPathNavigator[] outputs = WriteParameters(parameters, writer, opts);
             writer.WriteString(")");
 
             return outputs;
@@ -500,7 +508,6 @@ namespace PythonSyntax
         {
             string name = (string)parameter.Evaluate(parameterNameExpression);
             XPathNavigator type = parameter.SelectSingleNode(parameterTypeExpression);
-
             XPathNavigator argument = parameter.SelectSingleNode(parameterArgumentExpression);
 
             WriteParameter(name, type, argument, writer);
@@ -535,11 +542,10 @@ namespace PythonSyntax
                 else
                     WriteTypeReference(type, writer);
 
-                writer.WriteString(",");
                 foreach (XPathNavigator output in outputs)
                 {
+                    writer.WriteString(", ");
                     WriteTypeReference(output, writer);
-                    writer.WriteString(",");
                 }
 
                 writer.WriteString(")");
